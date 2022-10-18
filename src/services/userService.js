@@ -1,10 +1,14 @@
 export const userService = {
-    // getUser,
+    getUser,
 }
 
-const user = { 
-    name: 'Puki Ben David', 
-    balance: 100,
-    transaction: []
+
+function getUser() {
+    const user = {
+        name: 'Puki Ben David',
+        balance: 100,
+        transaction: []
+    }
+    return user
 }
 
