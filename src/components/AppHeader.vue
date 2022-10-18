@@ -39,7 +39,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 0;
-  height: 100px;
+  height: 8vh;
   background-color: #bbe4e9;
 
   .user-name {

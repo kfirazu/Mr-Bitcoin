@@ -1,8 +1,7 @@
 <template>
   <section class="contact-preview">
     <h2 class="name">{{ contact.name }}</h2>
-    <!-- <h3 class="email">{{ contact.email }}</h3> -->
-    <h3 class="email">{{ contact.phone }}</h3>
+    <img :src="`https://robohash.org/${contact.name}?set=set3`" />
   </section>
 </template>
 
@@ -20,7 +19,16 @@ export default {
 
 <style lang="scss">
 .contact-preview {
-  
-}
+  background-color: #79c2d0;
+  border-radius: 7px;
+  padding: 15px;
 
+  .name {
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+  }
+}
 </style>

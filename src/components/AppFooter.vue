@@ -16,7 +16,7 @@ export default {
   align-items: center;
   justify-content: center;
   background-color: #bbe4e9;
-  height: 10vh;
+  height: 12vh;
   padding: 10px;
   position: fixed;
   bottom: 0;
