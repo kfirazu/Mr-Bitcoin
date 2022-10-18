@@ -22,6 +22,7 @@ export default {
   background-color: #79c2d0;
   border-radius: 7px;
   padding: 15px;
+  max-width: 250px;
 
   .name {
     text-align: center;

@@ -1,5 +1,5 @@
 <template>
-    <section class="main-layout">
+    <section class="main-layout main-app">
         <!-- <h1 v-if="user" class="user-name">{{ user.name }}</h1>
         <div v-else>Loading...</div> -->
 
@@ -25,6 +25,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+.main-app {
+    background-color: #5585b5;
+}
 
 </style>
