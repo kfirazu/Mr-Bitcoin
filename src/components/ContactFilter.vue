@@ -1,6 +1,7 @@
 <template>
     <section class="contact-filter">
         <input @input="onFilter" v-model="filterBy.name" placeholder="Search contacts" type="text">
+        <button class="btn-add-contact"><RouterLink to="contact/edit">Add a contact</RouterLink></button>
     </section>
 </template>
 

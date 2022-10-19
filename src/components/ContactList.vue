@@ -1,15 +1,15 @@
 <template>
   <ul class="contact-list">
     <TransitionGroup name="list">
-    <li v-for="contact in contacts" v-bind:key="contact._id">
-      <ContactPreview v-bind:contact="contact" />
+    <li v-for="contact in contacts" :key="contact._id">
+      <ContactPreview :contact="contact" />
       <section class="card-actions">
         <button>
           <RouterLink :to="`/contact/${contact._id}`">Details</RouterLink>
         </button>
-        <!-- <button>
+        <button>
           <RouterLink :to="`/contact/edit/${contact._id}`">edit</RouterLink>
-        </button> -->
+        </button>
         <button @click="onRemoveContact(contact._id)">X</button>
       </section>
     </li>
@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     onRemoveContact(contactId){
-      this.$emit('contact-removed', contactId)
+      this.$emit('remove-contact', contactId)
     }
   },
   components: {

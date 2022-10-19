@@ -141,7 +141,7 @@ function sort(arr) {
 
 function getContacts(filterBy = null) {
     return new Promise((resolve, reject) => {
-        var contactsToReturn = contacts;
+        var contactsToReturn = structuredClone(contacts)
         if (filterBy && filterBy.term) {
             contactsToReturn = filter(filterBy.term)
         }

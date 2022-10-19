@@ -8,7 +8,7 @@
     </nav>
     <h3 v-if="user" class="user-name">{{ user.name }}</h3>
     <div v-else>Loading...</div>
-    <h3 class="user-name">{{ rate }}</h3>
+    <h3 class="rate">BTC Current rate: {{ currRate }} USD</h3>
   </header>
 
 </template>
@@ -20,14 +20,15 @@ export default {
   data() {
     return {
       user: null,
-      rate: null
+      currRate: null
     }
   },
   methods: {
   },
   async created() {
-    this.rate = await bitcoinService.getRate()
+    this.currRate = await bitcoinService.getRate()
     this.user = userService.getUser()
+    const price = bitcoinService.getMarketPriceHistory()
   }
 
 }
