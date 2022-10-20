@@ -12,9 +12,10 @@ const KEY = 'marketPriceHistoryDB'
 async function getRate() {
     let rate = storageService.load(STORAGE_KEY)
     if (!rate) {
-        const res = await axios.get('https://blockchain.info/tobtc?currency=USD&value=1')
+        const res = await axios.get('https://blockchain.info/ticker')
         rate = res.data
-        // console.log('res.data:', rate)
+        rate = _getRateData(rate)
+        console.log('res.data serviceeeee:', rate)
         storageService.save(STORAGE_KEY, rate)
         
     }
@@ -23,8 +24,6 @@ async function getRate() {
 
 async function getMarketPriceHistory(){
     let marketPriceHistory = storageService.load(KEY)
-    console.log('marketPriceHistory:', marketPriceHistory)
-
     if(!marketPriceHistory) {
         marketPriceHistory = await axios.get('https://api.blockchain.info/charts/market-price?cors=true')
         console.log('marketPriceHistory:', marketPriceHistory)
@@ -35,6 +34,11 @@ async function getMarketPriceHistory(){
         storageService.save(KEY, marketPriceHistory)
     }
     return marketPriceHistory
+}
+
+function _getRateData(rate) {
+    const currency = rate.USD.last
+    return currency
 }
 
 async function getAvgBlockSize(){

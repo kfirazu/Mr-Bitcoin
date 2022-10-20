@@ -4,6 +4,8 @@
       <input v-model="contact.email" type="text">
       <input v-model="contact.phone" type="text">
       <button @click="onSave" class="btn-save-contact">Save</button>
+      <button @click="onGoBack">Cancel</button>
+
 
     </section>
     <div v-else>Loading....</div>
@@ -20,6 +22,9 @@ export default {
     methods: {
         async onSave() {
             this.$store.dispatch({ type: 'saveContact', contact: this.contact })
+            this.$router.back()
+        },
+        onGoBack(){
             this.$router.back()
         }
     },

@@ -1,16 +1,14 @@
 <template>
   <header class="app-header full">
-    <h1 class="logo">Mr-Bitcoin</h1>
-    <nav class="links">
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/contact">Contacts</RouterLink>
-      <RouterLink to="/stats">Charts</RouterLink>
-    </nav>
-    <h3 v-if="user" class="user-name">{{ user.name }}</h3>
-    <div v-else>Loading...</div>
-    <h3 class="rate">BTC Current rate: {{ currRate }} USD</h3>
+    <div class="main-layout header-content">
+      <h1 class="logo">Mr-Bitcoin</h1>
+      <nav class="links">
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/contact">Contacts</RouterLink>
+        <RouterLink to="/stats">Charts</RouterLink>
+      </nav>
+    </div>
   </header>
-
 </template>
 
 <script>
@@ -35,29 +33,7 @@ export default {
 </script>
 
 <style lang="scss">
-.app-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0;
-  height: 8vh;
-  background-color: #bbe4e9;
 
-  .user-name {
-    font-size: 20px;
-    // line-height: 28px;
-    color: #2c3d4f;
-
-  }
-
-  a {
-    margin-inline-start: 10px;
-    font-size: 20px;
-    // line-height: 28px;
-    color: #2c3d4f;
-  }
-
-}
 </style>
 <!-- .first-color { 
 	background: #5585b5; 

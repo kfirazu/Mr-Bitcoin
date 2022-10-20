@@ -4,7 +4,9 @@
 
 body {
     margin: 0;
-    padding: 0;
+    background-color: #393e46;
+    font-family: montserrat, sans-serif;
+    color: #fff;
 }
 
 h1,
@@ -44,11 +46,12 @@ button,
     align-items: center;
     transition: background-color .2s;
     border: none;
+    font-size: rem(16px);
+    background-color: transparent;
+    color: #fff;
+    border-radius: 5px;
 
     &:hover {
         cursor: pointer;
     }
 }
-
-
-

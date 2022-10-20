@@ -1,7 +1,7 @@
 <template>
     <div v-if="contact" class="contact-details">
         <div class="img-container">
-            <img :src="`https://robohash.org/${contact.name}?set=set3`" />
+            <img :src="`https://joeschmoe.io/api/v1/${this.contact.name}@ashallendesign.co.uk`" />
         </div>
         <div class="contact content">
             <h2 class="name">{{ contact.name }}</h2>

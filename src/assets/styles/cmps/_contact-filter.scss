@@ -1,0 +1,26 @@
+.contact-filter {
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: rem(35px);
+    margin-bottom: rem(20px);
+    position: relative;
+
+
+
+    input {
+        // margin: 10px auto;
+        padding: 10px;
+        border-radius: 5px;
+        width: 50%;
+    }
+
+    .btn-add-contact {
+        position: absolute;
+        left: 116px;
+        font-size: rem(20px);
+        
+        
+    }
+}

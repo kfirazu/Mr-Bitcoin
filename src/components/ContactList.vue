@@ -1,20 +1,13 @@
 <template>
+  <section class="contact-list-container">
     <ul class="contact-list">
       <TransitionGroup name="list">
         <li v-for="contact in contacts" :key="contact._id">
-          <ContactPreview :contact="contact" />
-          <section class="card-actions">
-            <button>
-              <RouterLink :to="`/contact/${contact._id}`">Details</RouterLink>
-            </button>
-            <button>
-              <RouterLink :to="`/contact/edit/${contact._id}`">edit</RouterLink>
-            </button>
-            <button @click="onRemoveContact(contact._id)">X</button>
-          </section>
+          <ContactPreview :contact="contact"  v-on:remove-contact="onRemoveContact" />
         </li>
       </TransitionGroup>
     </ul>
+  </section>
 </template>
 
 <script>
@@ -42,36 +35,5 @@ export default {
 </script>
 
 <style lang="scss">
-.contact-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  padding: 15px;
 
-  .card-actions {
-    margin-block-start: 10px;
-    display: flex;
-    margin-inline-end: 10px;
-    justify-content: space-around;
-  }
-}
-
-.list-move,
-/* apply transition to moving elements */
-.list-enter-active,
-.list-leave-active {
-  transition: all 0.5s ease;
-}
-
-.list-enter-from,
-.list-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
-}
-
-/* ensure leaving items are taken out of layout flow so that moving
-   animations can be calculated correctly. */
-.list-leave-active {
-  position: absolute;
-}
 </style>

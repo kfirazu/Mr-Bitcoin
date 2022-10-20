@@ -1,7 +1,21 @@
 <template>
   <section class="contact-preview">
-    <h2 class="name">{{ contact.name }}</h2>
-    <img :src="`https://joeschmoe.io/api/v1/${this.contact.name}@ashallendesign.co.uk`" />
+    <RouterLink :to="`/contact/${contact._id}`">
+      <img :src="`https://joeschmoe.io/api/v1/${this.contact.name}@ashallendesign.co.uk`" />
+      <div class="content-info">
+      <h2 class="info">{{ contact.name }}</h2>
+      <h2 class="info">{{ contact.phone }}</h2>
+    </div>
+    </RouterLink>
+    <div class="card-actions">
+      <button class="btn-primary">
+        <RouterLink :to="`/contact/${contact._id}`">Details</RouterLink>
+      </button>
+      <button  class="btn-primary"> 
+        <RouterLink :to="`/contact/edit/${contact._id}`">Edit</RouterLink>
+      </button>
+      <button  class="btn-primary" @click="onRemoveContact(contact._id)">X</button>
+    </div>
   </section>
 </template>
 
@@ -12,24 +26,16 @@ export default {
       type: Object,
       required: true
     }
+  },
+  methods: {
+    onRemoveContact(contactId) {
+      this.$emit('remove-contact', contactId)
+    }
   }
 
 }
 </script>
 
 <style lang="scss">
-.contact-preview {
-  background-color: #79c2d0;
-  border-radius: 7px;
-  padding: 15px;
-  max-width: 250px;
 
-  .name {
-    text-align: center;
-  }
-
-  img {
-    width: 100%;
-  }
-}
 </style>

@@ -16,3 +16,19 @@ $break-wide: 1920px;
 $padded-break-narrow: $break-narrow + $layoutPadding * 2;
 $padded-break-normal: $break-normal + $layoutPadding * 2;
 $padded-break-wide: $break-wide + $layoutPadding * 2;
+
+.first-color { 
+	background: #222831; 
+}
+	
+.second-color { 
+	background: #393e46; 
+}
+
+.third-color { 
+	background: #0092ca; 
+}
+
+.fourth-color { 
+	background: #eeeeee; 
+}

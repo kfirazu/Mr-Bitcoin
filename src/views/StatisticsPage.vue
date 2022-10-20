@@ -36,7 +36,6 @@ export default {
 
 <style lang="scss">
 .chart-container{
-  height: 100vh;
   margin-top: 30px;
 }
 

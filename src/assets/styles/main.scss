@@ -10,6 +10,21 @@
 @import "basics/base";
 
 // Views
+@import "views/home-page";
+
+@import "views/contact";
+
+@import "views/statistics-page";
+
+
 
 // Components
+@import "cmps/app-header";
+@import "cmps/contact-list";
+@import "cmps/contact-preview";
+@import "cmps/contact-filter";
+@import "cmps/chart";
+
+
+
 

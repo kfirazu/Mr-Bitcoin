@@ -1,6 +1,7 @@
 <template>
+    <section class="contact main-layout" ></section>
     <ContactFilter @filter="onFilter" />
-    <ContactList v-bind:contacts="contactsToShow" v-on:remove-contact="onRemoveContact" />
+    <ContactList v-bind:contacts="contactsToShow" v-on:remove-contact="onRemoveContact"/>
 </template>
 
 <script>
@@ -22,7 +23,7 @@ export default {
             // const idx = this.contacts.findIndex(contact => contact._id === contactId)
             // this.contacts.splice(idx, 1)
             this.$store.dispatch({ type: 'removeContact', contactId })
-        },
+    },
         onFilter(filterBy) {
             this.filterBy = filterBy
         }

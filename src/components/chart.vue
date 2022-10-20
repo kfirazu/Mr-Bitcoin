@@ -55,7 +55,6 @@ export default {
         datasets: [{
           data: this.data,
           backgroundColor: ['#ffffff '],
-          color: ['#ffffff'],
           label: '1 Bitcoin in USD'
         }]
       },
