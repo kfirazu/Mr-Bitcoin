@@ -1,7 +1,7 @@
 <template>
   <section class="contact-preview">
     <h2 class="name">{{ contact.name }}</h2>
-    <img :src="`https://robohash.org/${contact.name}?set=set3`" />
+    <img :src="`https://joeschmoe.io/api/v1/${this.contact.name}@ashallendesign.co.uk`" />
   </section>
 </template>
 

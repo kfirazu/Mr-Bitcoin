@@ -1,20 +1,20 @@
 <template>
-  <ul class="contact-list">
-    <TransitionGroup name="list">
-    <li v-for="contact in contacts" :key="contact._id">
-      <ContactPreview :contact="contact" />
-      <section class="card-actions">
-        <button>
-          <RouterLink :to="`/contact/${contact._id}`">Details</RouterLink>
-        </button>
-        <button>
-          <RouterLink :to="`/contact/edit/${contact._id}`">edit</RouterLink>
-        </button>
-        <button @click="onRemoveContact(contact._id)">X</button>
-      </section>
-    </li>
-  </TransitionGroup>
-  </ul>
+    <ul class="contact-list">
+      <TransitionGroup name="list">
+        <li v-for="contact in contacts" :key="contact._id">
+          <ContactPreview :contact="contact" />
+          <section class="card-actions">
+            <button>
+              <RouterLink :to="`/contact/${contact._id}`">Details</RouterLink>
+            </button>
+            <button>
+              <RouterLink :to="`/contact/edit/${contact._id}`">edit</RouterLink>
+            </button>
+            <button @click="onRemoveContact(contact._id)">X</button>
+          </section>
+        </li>
+      </TransitionGroup>
+    </ul>
 </template>
 
 <script>
@@ -30,7 +30,7 @@ export default {
     }
   },
   methods: {
-    onRemoveContact(contactId){
+    onRemoveContact(contactId) {
       this.$emit('remove-contact', contactId)
     }
   },
@@ -46,9 +46,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
-  background-color: #53a8b6;
   padding: 15px;
-  height: 80vh;
 
   .card-actions {
     margin-block-start: 10px;
@@ -58,7 +56,8 @@ export default {
   }
 }
 
-.list-move, /* apply transition to moving elements */
+.list-move,
+/* apply transition to moving elements */
 .list-enter-active,
 .list-leave-active {
   transition: all 0.5s ease;
