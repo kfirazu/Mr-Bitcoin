@@ -17,7 +17,7 @@ export default {
 
 <style lang="scss">
 .main-container {
-  background-color: #393e46;
-  height: 100vh;
+  background-color: #14143d;
+  // height: 100vh;
 }
 </style>

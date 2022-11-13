@@ -1,6 +1,8 @@
 <template>
+  <div class="chart">
   <Bar :chart-options="chartOptions" :chart-data="chartData" :chart-id="chartId" :dataset-id-key="datasetIdKey"
     :plugins="plugins" :css-classes="cssClasses" :styles="styles" :width="width" :height="height" />
+    </div>
 </template>
   
 <script>
@@ -64,9 +66,13 @@ export default {
     }
   },
   created() {
-    console.log('data from chart cmp:', this.data)
-    console.log('labels from chart cmp:', this.labels)
-
   }
 }
 </script>
+
+<style lang="scss">
+// .chart{
+//   height: 400px;
+//   width: 400px;
+// }
+</style>

@@ -15,7 +15,6 @@ async function getRate() {
         const res = await axios.get('https://blockchain.info/ticker')
         rate = res.data
         rate = _getRateData(rate)
-        console.log('res.data serviceeeee:', rate)
         storageService.save(STORAGE_KEY, rate)
         
     }
@@ -26,7 +25,6 @@ async function getMarketPriceHistory(){
     let marketPriceHistory = storageService.load(KEY)
     if(!marketPriceHistory) {
         marketPriceHistory = await axios.get('https://api.blockchain.info/charts/market-price?cors=true')
-        console.log('marketPriceHistory:', marketPriceHistory)
         marketPriceHistory = marketPriceHistory.data
         //values - 2 arrays of objects that contains x and y keys¸
         // x is timestamp - need to multiple by 1000 to get a real time stamp

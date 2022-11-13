@@ -35,8 +35,6 @@ export default {
 </script>
 
 <style lang="scss">
-.chart-container{
-  margin-top: 30px;
-}
+
 
 </style>

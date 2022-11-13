@@ -1,13 +1,17 @@
 <template>
-  <header class="app-header full">
-    <div class="main-layout header-content">
-      <h1 class="logo">Mr-Bitcoin</h1>
-      <nav class="links">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/contact">Contacts</RouterLink>
-        <RouterLink to="/stats">Charts</RouterLink>
-      </nav>
-    </div>
+  <header class="app-header">
+    <!-- <div class="main-layout header-content"> -->
+    <RouterLink to="/home">
+      <h1 class="logo">
+        <span><img src="../../public/img/bit-logo2.jpeg" alt=""></span> Mr Bitcoin
+      </h1>
+    </RouterLink>
+    <nav class="links">
+      <RouterLink to="/home">Home</RouterLink>
+      <RouterLink to="/contact">Contacts</RouterLink>
+      <RouterLink to="/stats">Charts</RouterLink>
+    </nav>
+    <!-- </div> -->
   </header>
 </template>
 

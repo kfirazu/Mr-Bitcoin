@@ -4,7 +4,7 @@
         <h1 v-if="user" class="greet-user">Hello {{ user.name }},</h1>
         <div v-else>Loading...</div>
                 <h3 class="user-balance">Your balance is: ₿{{ user.balance }}</h3>
-                <h3 class="usd">USD: $ {{getUserBalance}}</h3>
+                <h3 class="usd">Balance in USD: ${{getUserBalance}}</h3>
         </main>
 
 
@@ -30,8 +30,6 @@ export default {
     },
     computed: {
         getUserBalance(){
-            console.log('this.rate:', this.rate)
-            console.log('this.user.balance:', this.user.balance)
             return this.user.balance * this.rate
         }
     }

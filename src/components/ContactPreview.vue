@@ -1,7 +1,7 @@
 <template>
   <section class="contact-preview">
     <RouterLink :to="`/contact/${contact._id}`">
-      <img :src="`https://joeschmoe.io/api/v1/${this.contact.name}@ashallendesign.co.uk`" />
+      <img :src="`https://joeschmoe.io/api/v1/${this.contact._id}@ashallendesign.co.uk`" />
       <div class="content-info">
       <h2 class="info">{{ contact.name }}</h2>
       <h2 class="info">{{ contact.phone }}</h2>
