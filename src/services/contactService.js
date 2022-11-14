@@ -1,8 +1,14 @@
+import { httpService } from "./http.service"
+
 export const contactService = {
-    getContacts,
-    getContactById,
-    deleteContact,
-    saveContact,
+    // getContacts,
+    // getContactById,
+    // deleteContact,
+    // saveContact,
+    query, 
+    getById,
+    remove,
+    save,
     getEmptyContact
 }
 
@@ -124,69 +130,124 @@ const contacts = [
         "email": "lillyconner@renovize.com",
         "phone": "+1 (842) 587-3812"
     }
-];
+]
+const BASE_URL = 'contact/'
 
-function sort(arr) {
-    return arr.sort((a, b) => {
-        if (a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase()) {
-            return -1;
+
+
+// function sort(arr) {
+//     return arr.sort((a, b) => {
+//         if (a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase()) {
+//             return -1
+//         }
+//         if (a.name.toLocaleLowerCase() > b.name.toLocaleLowerCase()) {
+//             return 1
+//         }
+
+//         return 0
+//     })
+// }
+
+// function getContacts(filterBy = null) {
+//     return new Promise((resolve, reject) => {
+//         var contactsToReturn = structuredClone(contacts)
+//         if (filterBy && filterBy.term) {
+//             contactsToReturn = filter(filterBy.term)
+//         }
+//         resolve(sort(contactsToReturn))
+//     })
+// }
+
+// function getContactById(id) {
+//     return new Promise((resolve, reject) => {
+//         const contact = contacts.find(contact => contact._id === id)
+//         contact ? resolve({ ...contact }) : reject(`Contact id ${id} not found!`)
+//     })
+// }
+
+// function deleteContact(id) {
+//     return new Promise((resolve, reject) => {
+//         const index = contacts.findIndex(contact => contact._id === id)
+//         if (index !== -1) {
+//             contacts.splice(index, 1)
+//         }
+
+//         resolve(contacts)
+//     })
+// }
+
+// function _updateContact(contact) {
+//     return new Promise((resolve, reject) => {
+//         const index = contacts.findIndex(c => contact._id === c._id)
+//         if (index !== -1) {
+//             contacts[index] = contact
+//         }
+//         resolve(contact)
+//     })
+// }
+
+// function _addContact(contact) {
+//     return new Promise((resolve, reject) => {
+//         contact._id = _makeId()
+//         contacts.push(contact)
+//         resolve(contact)
+//     })
+// }
+
+// function saveContact(contact) {
+//     return contact._id ? _updateContact(contact) : _addContact(contact)
+// }
+
+async function query(filterBy) {
+    try {
+        if (filterBy) {
+            const contacts = await httpService.get(BASE_URL, filterBy)
+            return contacts
         }
-        if (a.name.toLocaleLowerCase() > b.name.toLocaleLowerCase()) {
-            return 1;
+        else {
+            const contacts = await httpService.get(BASE_URL)
+            return contacts
         }
-
-        return 0;
-    })
+    } catch (err) {
+        console.log('Failed to get contacts:', err)
+        throw err
+    }
 }
 
-function getContacts(filterBy = null) {
-    return new Promise((resolve, reject) => {
-        var contactsToReturn = structuredClone(contacts)
-        if (filterBy && filterBy.term) {
-            contactsToReturn = filter(filterBy.term)
+async function getById(contactId) {
+    try {
+        return await httpService.get(BASE_URL + contactId)
+    } catch (err) {
+        console.log('Failed to get contact by id:', err)
+        throw err
+    }
+}
+
+async function remove(contactId) {
+    try {
+        return await httpService.delete(BASE_URL + contactId)
+    } catch (err) {
+        console.log('Remove contact has failed', err)
+        throw err
+    }
+}
+
+async function save(contact) {
+    if (contact._id) {
+        try {
+            return await httpService.put(BASE_URL + contact._id, contact)
+        } catch (err) {
+            console.log('Update contact has failed:', err)
+            throw err
         }
-        resolve(sort(contactsToReturn))
-    })
-}
-
-function getContactById(id) {
-    return new Promise((resolve, reject) => {
-        const contact = contacts.find(contact => contact._id === id)
-        contact ? resolve({ ...contact }) : reject(`Contact id ${id} not found!`)
-    })
-}
-
-function deleteContact(id) {
-    return new Promise((resolve, reject) => {
-        const index = contacts.findIndex(contact => contact._id === id)
-        if (index !== -1) {
-            contacts.splice(index, 1)
+    } else {
+        try {
+            return await httpService.post(BASE_URL, contact)
+        } catch (err) {
+            console.log('Failed to save contact', err)
+            throw err
         }
-
-        resolve(contacts)
-    })
-}
-
-function _updateContact(contact) {
-    return new Promise((resolve, reject) => {
-        const index = contacts.findIndex(c => contact._id === c._id)
-        if (index !== -1) {
-            contacts[index] = contact
-        }
-        resolve(contact)
-    })
-}
-
-function _addContact(contact) {
-    return new Promise((resolve, reject) => {
-        contact._id = _makeId()
-        contacts.push(contact)
-        resolve(contact)
-    })
-}
-
-function saveContact(contact) {
-    return contact._id ? _updateContact(contact) : _addContact(contact)
+    }
 }
 
 function getEmptyContact() {
